@@ -1,9 +1,9 @@
 class Shibudb < Formula
   desc "Lightweight embedded database with KV and vector support"
   homepage "https://github.com/shibudb-org/shibudb-server"
-  url "https://github.com/user-attachments/files/21918036/shibudb-1.0.2-darwin-arm64.tar.gz"
-  sha256 "8260fd4f8876897f3ca1f0b340e1cc977c2148353a6b00b8cbd8375eebc809c7"
-  version "1.0.2"
+  url "https://github.com/shibudb-org/shibudb-server/releases/download/v1.0.1/shibudb-1.0.1-darwin-arm64.tar.gz"
+  sha256 "sha256:fcc2b998bb5598c361f3ceeaf0bb07caceae8cf3787a87fc007ce25a93ee697d"
+  version "1.0.1"
   license "AGPL3"
 
   def install
