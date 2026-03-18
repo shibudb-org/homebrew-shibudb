@@ -82,10 +82,7 @@ class Shibudb < Formula
     begin
       assert_equal true, ready, "server did not become ready on port #{port}"
 
-      output = shell_output("#{bin}/shibudb connect --username testadmin --password testpass #{port} <<~EOS
-        exit
-      EOS
-      ")
+      output = pipe_output("#{bin}/shibudb connect --username testadmin --password testpass #{port}", "exit\n")
       assert_match(/successful/i, output)
     ensure
       Process.kill("TERM", pid)
