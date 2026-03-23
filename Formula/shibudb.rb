@@ -1,8 +1,8 @@
 class Shibudb < Formula
   desc "Lightweight database engine with vector search support"
   homepage "https://github.com/shibudb-org/shibudb-server"
-  url "https://github.com/shibudb-org/shibudb-server/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "2ac9b7e8653ecde7c8e59682f21abfd5a691ccb984180331db5f2fa549add45f"
+  url "https://github.com/shibudb-org/shibudb-server/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "4f22ffe4ef802343e66ffc2811427d5d54f9da4e05ae5ec9062fe29afb0e136a"
   license "AGPL-3.0-only"
   head "https://github.com/shibudb-org/shibudb-server.git", branch: "main"
 
@@ -31,7 +31,7 @@ class Shibudb < Formula
     <<~EOS
       The default service admin credentials are admin/admin.
       Change the admin password after first start:
-        #{opt_bin}/shibudb connect --username admin --password admin 9090
+        #{opt_bin}/shibudb connect --username admin --password admin --port 9090
         > update-user-password admin
     EOS
   end
@@ -42,7 +42,7 @@ class Shibudb < Formula
       "--data-dir", var/"lib/shibudb",
       "--admin-user", "admin",
       "--admin-password", "admin",
-      "9090"
+      "--port", "9090"
     ]
     keep_alive true
     log_path var/"log/shibudb.log"
@@ -62,7 +62,7 @@ class Shibudb < Formula
       "--data-dir", data_dir.to_s,
       "--admin-user", "testadmin",
       "--admin-password", "testpass",
-      port.to_s
+      "--port", port.to_s
     )
 
     require "socket"
@@ -82,7 +82,7 @@ class Shibudb < Formula
     begin
       assert_equal true, ready, "server did not become ready on port #{port}"
 
-      output = pipe_output("#{bin}/shibudb connect --username testadmin --password testpass #{port}", "exit\n")
+      output = pipe_output("#{bin}/shibudb connect --username testadmin --password testpass --port #{port}", "exit\n")
       assert_match(/successful/i, output)
     ensure
       Process.kill("TERM", pid)
