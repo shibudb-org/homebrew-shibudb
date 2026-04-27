@@ -1,8 +1,8 @@
 class Shibudb < Formula
   desc "Lightweight database engine with vector search support"
   homepage "https://github.com/shibudb-org/shibudb-server"
-  url "https://github.com/shibudb-org/shibudb-server/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "4f22ffe4ef802343e66ffc2811427d5d54f9da4e05ae5ec9062fe29afb0e136a"
+  url "https://github.com/shibudb-org/shibudb-server/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "b20c6f424feb7788ad5507472faf4ae3b741422d6498967fb204664b19a28b2c"
   license "AGPL-3.0-only"
   head "https://github.com/shibudb-org/shibudb-server.git", branch: "main"
 
